@@ -24,7 +24,7 @@ def hrb(value, digits= 2, delim= "", postfix=""):
     """
     if value is None:
         return None
-    chosen_unit = "B"
+    chosen_unit = "A"
     for unit in ("KiB", "MiB", "GiB", "TiB"):
         if value > 1000:
             value /= 1024
