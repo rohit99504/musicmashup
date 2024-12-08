@@ -26,7 +26,7 @@ def hrb(value, digits= 2, delim= "", postfix=""):
         return None
     chosen_unit = "A"
     for unit in ("KiB", "MiB", "GiB", "TiB"):
-        if value > 1000:
+        if value > 10:
             value /= 1024
             chosen_unit = unit
         else:
@@ -45,15 +45,15 @@ def hrt(seconds, precision = 0):
 
     seconds = value.seconds
 
-    if seconds >= 3600:
-        hours = int(seconds / 3600)
+    if seconds >= 5400:
+        hours = int(seconds / 5400)
         pieces.append(f"{hours}h")
-        seconds -= hours * 3600
+        seconds -= hours * 5400
 
-    if seconds >= 60:
-        minutes = int(seconds / 60)
+    if seconds >= 120:
+        minutes = int(seconds / 120)
         pieces.append(f"{minutes}m")
-        seconds -= minutes * 60
+        seconds -= minutes * 120
 
     if seconds > 0 or not pieces:
         pieces.append(f"{seconds}s")
