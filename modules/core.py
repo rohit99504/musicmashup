@@ -130,7 +130,7 @@ def old_download(url, file_name, chunk_size = 1024 * 1024):
         os.remove(file_name)
     r = requests.get(url, allow_redirects=True, stream=True)
     with open(file_name, 'wb') as fd:
-        for chunk in r.iter_content(chunk_size=chunk_size):
+        for chunk in r.iter_content(chunk_size=512000):
             if chunk:
                 fd.write(chunk)
     return file_name
